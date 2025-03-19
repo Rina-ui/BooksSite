@@ -119,19 +119,22 @@ function Books() {
         )}
       </div>
 
-      {/* Affichage de la lecture du livre si disponible */}
+      {/* Affichage en modal si un livre est sélectionné */}
       {selectedBook && (
-        <div className="book-reader">
-          <button onClick={() => setSelectedBook(null)}>❌ Fermer</button>
-          <iframe
-            src={selectedBook}
-            title="Book Preview"
-            width="100%"
-            height="600px"
-            style={{ border: "none" }}
-          ></iframe>
+        <div className="modal-overlay">
+          <div className="modal-content">
+            <button className="modal-close" onClick={() => setSelectedBook(null)}>❌ Fermer</button>
+            <iframe
+              src={selectedBook}
+              title="Book Preview"
+              width="100%"
+              height="90%"
+              style={{ border: "none" }}
+            ></iframe>
+          </div>
         </div>
       )}
+
     </div>
   );
 }
