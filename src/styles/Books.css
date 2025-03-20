@@ -6,24 +6,22 @@
     font-family: 'Arial', sans-serif;
 }
 
-
 .books-container {
+    width: 100vw;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    min-height: 100vh;
     background: linear-gradient(135deg, #3a3a39, #2b2b2a);
     padding: 40px 20px;
 }
-
 
 .books-container h2 {
     color: #fff;
     font-size: 2.5rem;
     margin-bottom: 20px;
 }
-
 
 .search-bar {
     display: flex;
@@ -41,30 +39,19 @@
     font-size: 1rem;
 }
 
-.search-bar button {
-    padding: 12px 20px;
-    background: #f50606;
-    color: #fff;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: 0.3s;
-    font-size: 1rem;
-}
-
-
 .grid-book {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(285px, 1fr)); /* Colonnes dynamiques */
-    gap: 10px;
-    width: 80%;
-    max-width: 1200px;
-    padding: 10px;
-    margin: 10px;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); /* Colonnes dynamiques */
+    gap: 20px;
+    width: 100%; 
+    max-width: 100%; 
+    padding: 20px;
+    margin: 0 auto;
 }
 
-
 .book-card {
+    width: 100%; /* Chaque livre prend toute la largeur de sa colonne */
+    height: auto;
     background: #fff;
     border-radius: 12px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -74,21 +61,18 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 100%;
 }
 
 .book-card:hover {
     transform: scale(1.05);
 }
 
-
 .book-card img {
-    width: 100%;
-    border-radius: 10px;
-    height: 200px; 
+    width: 100%; 
+    height: 200px;
     object-fit: cover;
+    border-radius: 10px;
 }
-
 
 .book-card h3 {
     font-size: 1.5rem;
@@ -96,11 +80,29 @@
     margin: 10px 0;
 }
 
-
 .book-card p {
     font-size: 1rem;
     color: #555;
     margin-bottom: 10px;
+}
+
+.read-button {
+    background-color: #eff1ef;
+    border: none;
+    color: black;
+    padding: 15px 32px;
+    text-align: center;
+    display: inline-block;
+    font-size: 15px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 5px;
+    outline: none;
+    opacity: 0.9;
+}
+
+.read-button:hover {
+    color: rgb(236, 107, 85);
 }
 
 .modal-overlay {
@@ -114,9 +116,9 @@
     justify-content: center;
     align-items: center;
     z-index: 1000;
-  }
-  
-  .modal-content {
+}
+
+.modal-content {
     background: white;
     width: 80%;
     height: 80%;
@@ -127,9 +129,9 @@
     justify-content: center;
     align-items: center;
     position: relative;
-  }
-  
-  .modal-close {
+}
+
+.modal-close {
     position: absolute;
     top: 10px;
     right: 20px;
@@ -138,7 +140,4 @@
     border: none;
     color: red;
     cursor: pointer;
-  }
-  
-
-
+}

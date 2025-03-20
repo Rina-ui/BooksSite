@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { motion } from "framer-motion";
 import "../styles/Books.css";
 
 function Books() {
@@ -67,7 +68,11 @@ function Books() {
       {error && <p style={{ color: "red" }}>{error}</p>}
 
       {/* Affichage des livres */}
-      <div className="grid-book">
+      <motion.div 
+        className="grid-book"
+        initial={{ opacity: 0, x: 50 }}   // État initial (caché)
+        animate={{ opacity: 1, x: 0, transition: { type: "spring", stiffness: 260, damping: 20 } }} // Animation vers l'état visible
+      >
         {books.length > 0 ? (
           books.map((book, index) => {
             // Vérification de la disponibilité pour la lecture
@@ -89,35 +94,43 @@ function Books() {
 
                 {/* Bouton de lecture avec vérification */}
                 {readableLink ? (
-                  <button
+                  <motion.button
                     onClick={() => {
                       console.log("Lecture du livre :", readableLink);
                       setSelectedBook(readableLink);
                     }}
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.9 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 0.5 }}
                     className="read-button"
                   >
-                    📖 Lire en ligne
-                  </button>
+                    📖 Read here
+                  </motion.button>
                 ) : (
                   <p className="no-access">⚠️ Ce livre n'est pas disponible en lecture directe.</p>
                 )}
 
                 {/* Lien vers OpenLibrary si non lisible */}
-                <a
+                <motion.a
                   href={`https://openlibrary.org/books/${book.edition_key?.[0]}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="read-button"
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.9 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 0.5 }}
                 >
-                  🌍 Voir sur Open Library
-                </a>
+                  Open Library
+                </motion.a>
               </div>
             );
           })
         ) : (
           !loading && <p>No books found</p>
         )}
-      </div>
+      </motion.div>
 
       {/* Affichage en modal si un livre est sélectionné */}
       {selectedBook && (
