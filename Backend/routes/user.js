@@ -1,7 +1,8 @@
 import express from 'express';
 const router = express.Router();
 
-const userCtrl = require('../controllers/user');    
+import * as userCtrl from '../controllers/user.js';
+  
 
 router.post('/signup', userCtrl.signup);
 router.post('/login', userCtrl.login);

@@ -2,24 +2,24 @@ import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 
 import User from '../models/User.js';
-
-exports.signup = (req, res, next) => {
-    //hasher le mot de passe 
-    bcrypt.hash(req.body.password, 10)
-    .then(hash => {
-        const user = new User({
-            email: req.body.email,
-            password: hash
-        });
-        user.save()
-        .then(() => res.stats(201).json({message: 'Utilisateur créé !'}))
-        .catch(error => res.status(400).json({error}))
-    })
-    .catch(error => res.status(500).json({error}));
+export const signup = async (req, res) => {
+    console.log('Body reçu:', req.body);
+  try {
+    const hashedPassword = await bcrypt.hash(req.body.password, 10);
+    const user = new User({
+      email: req.body.email,
+      password: hashedPassword
+    });
+    await user.save();
+    res.status(201).json({ message: 'Utilisateur créé !' });
+  } catch (error) {
+    console.error('Signup error:', error);  // <-- Ajoute ça
+    res.status(500).json({ error: error.message });
+  }
 };
 
 
-exports.login = (req, res, next) => {
+export const login = (req, res, next) => {
     User.findOne({email: req.body.email})
         .then(user => {
             if(user === null){

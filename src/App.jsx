@@ -7,6 +7,7 @@ import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-route
 import Home from './pages/Home'
 import About from './pages/About'
 import Login from './pages/Login'
+import Register from './pages/Register'
 import Books from './pages/Books'
 import './App.css'
 
@@ -21,6 +22,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/books" element={<Books />} />
           <Route path="/about" element={<About />} />
+          <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />}/>
         </Routes>
       </div>
