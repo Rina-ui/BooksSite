@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
+
 const Register = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -21,7 +24,10 @@ const Register = () => {
    <div
       style={{
         height: "100vh",
-        background: "linear-gradient(135deg, #a1c4fd 0%, #c2e9fb 100%)",
+        backgroundImage: "url('https://i.pinimg.com/736x/8b/b8/67/8bb867df360564d4e697e66119ba26da.jpg')", 
+        backgroundSize: "cover",      
+        backgroundPosition: "center", 
+        backgroundRepeat: "no-repeat",
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
@@ -44,7 +50,7 @@ const Register = () => {
         }}
       >
         <h2 style={{ textAlign: "center", color: "#fff", marginBottom: "24px" }}>
-          Sign Up
+          Register
         </h2>
         <form onSubmit={handleSubmit}>
           <div style={{ marginBottom: "16px" }}>
@@ -104,7 +110,7 @@ const Register = () => {
               cursor: "pointer",
             }}
           >
-            Sign Up
+            Register
           </motion.button>
 
           <p style={{ marginTop: "16px", textAlign: "center", color: "#000" }}>

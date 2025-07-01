@@ -1,12 +1,26 @@
 import React from "react";
 import {motion} from "framer-motion";
 import { Link } from "react-router-dom";
+import { useState } from "react";
 
 
 function Login() {
 
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+
     return (
-       <div style={{ height: "100vh", background: "linear-gradient(135deg, #a1c4fd 0%, #c2e9fb 100%)", display: "flex", alignItems: "center", justifyContent: "center", fontFamily: "Segoe UI, sans-serif" }}>
+       <div style={{
+         height: "100vh", 
+         backgroundImage: "url('https://i.pinimg.com/736x/d1/a7/57/d1a7577fab1a44df6cc49bdb3ad719ea.jpg')", 
+         backgroundSize: "cover",      
+         backgroundPosition: "center", 
+         backgroundRepeat: "no-repeat",
+         display: "flex", 
+         alignItems: "center", 
+         justifyContent: "center", 
+         fontFamily: "Segoe UI, sans-serif" 
+        }}>
       <motion.div
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -23,7 +37,7 @@ function Login() {
         }}
       >
         <h2 style={{ textAlign: "center", color: "#fff", marginBottom: "24px" }}>Login</h2>
-        <form onSubmit={handleSubmit}>
+        <form >
           <div style={{ marginBottom: "16px" }}>
             <label htmlFor="email" style={{ fontWeight: 500, color: "#fff" }}>Email</label>
             <input
