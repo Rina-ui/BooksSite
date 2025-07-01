@@ -20,7 +20,6 @@ const Register = () => {
   return (
     <div>
         <h1>Sign up</h1>
-        <h1>Sign up</h1>
         <form onSubmit={handleSubmit}>
             <input
                 type="email"

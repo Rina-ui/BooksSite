@@ -1,4 +1,5 @@
 import React from "react";
+import {motion} from "framer-motion";
 import { Link } from "react-router-dom";
 
 
@@ -6,7 +7,9 @@ function Login() {
 
     return (
         <div>
-        <h1>Login</h1>
+        <motion.h1>
+            Login
+        </motion.h1>
         <fieldset>
             <legend>Login</legend>
             <form>
