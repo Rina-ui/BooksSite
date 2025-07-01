@@ -36,10 +36,10 @@ function Login() {
           maxWidth: "90%",
         }}
       >
-        <h2 style={{ textAlign: "center", color: "#fff", marginBottom: "24px" }}>Login</h2>
+        <h2 style={{ textAlign: "center", color: "#000000", marginBottom: "24px" }}>Login</h2>
         <form >
           <div style={{ marginBottom: "16px" }}>
-            <label htmlFor="email" style={{ fontWeight: 500, color: "#fff" }}>Email</label>
+            <label htmlFor="email" style={{ fontWeight: 500, color: "#000000" }}>Email</label>
             <input
               type="email"
               id="email"
@@ -59,7 +59,7 @@ function Login() {
           </div>
 
           <div style={{ marginBottom: "24px" }}>
-            <label htmlFor="password" style={{ fontWeight: 500, color: "#fff" }}>Password</label>
+            <label htmlFor="password" style={{ fontWeight: 500, color: "#000000" }}>Password</label>
             <input
               type="password"
               id="password"
@@ -85,7 +85,7 @@ function Login() {
             style={{
               width: "100%",
               padding: "10px",
-              backgroundColor: "#6c7ae0",
+              backgroundColor: "#99582a",
               color: "white",
               border: "none",
               borderRadius: "8px",

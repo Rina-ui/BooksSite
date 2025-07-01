@@ -49,12 +49,12 @@ const Register = () => {
           maxWidth: "90%",
         }}
       >
-        <h2 style={{ textAlign: "center", color: "#fff", marginBottom: "24px" }}>
+        <h2 style={{ textAlign: "center", color: "#000000", marginBottom: "24px" }}>
           Register
         </h2>
         <form onSubmit={handleSubmit}>
           <div style={{ marginBottom: "16px" }}>
-            <label htmlFor="email" style={{ fontWeight: 500, color: "#fff" }}>
+            <label htmlFor="email" style={{ fontWeight: 500, color: "#000000" }}>
               Email
             </label>
             <input
@@ -75,7 +75,7 @@ const Register = () => {
           </div>
 
           <div style={{ marginBottom: "24px" }}>
-            <label htmlFor="password" style={{ fontWeight: 500, color: "#fff" }}>
+            <label htmlFor="password" style={{ fontWeight: 500, color: "#000000" }}>
               Password
             </label>
             <input
@@ -102,7 +102,7 @@ const Register = () => {
             style={{
               width: "100%",
               padding: "10px",
-              backgroundColor: "#8a65ff",
+              backgroundColor: "#99582a",
               color: "white",
               border: "none",
               borderRadius: "8px",
@@ -115,7 +115,7 @@ const Register = () => {
 
           <p style={{ marginTop: "16px", textAlign: "center", color: "#000" }}>
             Already have an account?{" "}
-            <Link to="/login" style={{ color: "#fff", fontWeight: "bold", textDecoration: "underline" }}>
+            <Link to="/login" style={{ color: "#000000", fontWeight: "bold", textDecoration: "underline" }}>
               Login
             </Link>
           </p>
