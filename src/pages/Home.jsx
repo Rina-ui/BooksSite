@@ -1,10 +1,42 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { motion } from "framer-motion";
 import books from "../assets/books.jpg"; 
 import "../styles/Home.css";
+import { useNavigate, useLocation } from "react-router-dom";
+import e from "cors";
 
 
 function Home() {
+
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const [email, setEmail] = useState('');
+  const [isConnected, setIsConnected] = useState(false);
+
+  // verified if user is connected
+
+  useEffect(() => {
+    const email = localStorage.getItem('userEmail');
+
+    if (!email){
+      navigate("/login");
+    } else {
+      setEmail(email);
+      setIsConnected(false);
+    }
+  }, [navigate, location.state]);
+
+  if (isConnected){
+    return (
+      <div style={{padding: 20}}>
+        Chargement..........
+      </div>
+    )
+  }
+
+
+
   return (
     <div className="home">
       <div className="image-container">

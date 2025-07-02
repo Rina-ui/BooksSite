@@ -1,13 +1,33 @@
 import React from "react";
 import {motion} from "framer-motion";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
+import axios from "axios";
 
 
 function Login() {
-
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const navigate = useNavigate();
+
+    const handleSubmit = async (e) =>{
+        e.preventDefault();
+
+        try{
+            const response = await axios.post('http://localhost:3000/api/auth/login', {
+                email,
+                password,
+            });
+            console.log(response.data);
+            alert("Login successful!");
+
+            // Redirect to the home page or any other page after successful login
+            navigate("/", {state: {userEmail: email}});
+        }catch(error){
+            console.error('Login error:', error);
+            alert("Login failed. Please check your credentials.");
+        }
+    }
 
     return (
        <div style={{
@@ -37,7 +57,7 @@ function Login() {
         }}
       >
         <h2 style={{ textAlign: "center", color: "#000000", marginBottom: "24px" }}>Login</h2>
-        <form >
+        <form onSubmit={handleSubmit}>
           <div style={{ marginBottom: "16px" }}>
             <label htmlFor="email" style={{ fontWeight: 500, color: "#000000" }}>Email</label>
             <input
