@@ -7,16 +7,31 @@ const Register = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
+ 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:3000/api/auth/signup', {
+      const response = await axios.post("http://localhost:3000/api/auth/signup", {
         email,
-        password
+        password,
       });
       console.log(response.data);
+      
+      alert('Welcome, ${email}! Your account is create succesfully.');
+
+      //redicrection to home page
+      navigate("/", {state: {userEmail: email}})
+
     } catch (error) {
-      console.error('Erreur lors de l’inscription :', error);
+      console.error("Error during signup:", error);
+
+      //si l'user est deja cree 
+        if (error.response && error.response.status === 400) {
+            alert("Email is already use , choose another one.");
+            navigate('/login');
+        } else {
+            alert("Error during the registration , Please retry .");
+        }
     }
   };
 
