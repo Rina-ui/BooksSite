@@ -1,11 +1,14 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { motion } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 
 const Register = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+
+  const navigate = useNavigate();
 
  
   const handleSubmit = async (e) => {
@@ -20,7 +23,7 @@ const Register = () => {
       alert('Welcome, ${email}! Your account is create succesfully.');
 
       //redicrection to home page
-      navigate("/", {state: {userEmail: email}})
+      navigate("/home", {state: {userEmail: email}})
 
     } catch (error) {
       console.error("Error during signup:", error);

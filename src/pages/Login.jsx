@@ -22,7 +22,7 @@ function Login() {
             alert("Login successful!");
 
             // Redirect to the home page or any other page after successful login
-            navigate("/", {state: {userEmail: email}});
+            navigate("/home", {state: {userEmail: email}});
         }catch(error){
             console.error('Login error:', error);
             alert("Login failed. Please check your credentials.");

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import books from "../assets/books.jpg"; 
 import "../styles/Home.css";
@@ -17,23 +17,24 @@ function Home() {
   // verified if user is connected
 
   useEffect(() => {
-    const email = localStorage.getItem('userEmail');
+  const email = localStorage.getItem('userEmail');
 
-    if (!email){
-      navigate("/login");
-    } else {
-      setEmail(email);
-      setIsConnected(false);
-    }
-  }, [navigate, location.state]);
-
-  if (isConnected){
-    return (
-      <div style={{padding: 20}}>
-        Chargement..........
-      </div>
-    )
+  if (!email){
+    navigate("/login");
+  } else {
+    setEmail(email);
+    setIsConnected(true); 
   }
+}, [navigate, location.state]);
+
+if (!isConnected){   
+  return (
+    <div style={{padding: 20}}>
+      Chargement..........
+    </div>
+  );
+}
+
 
 
 
